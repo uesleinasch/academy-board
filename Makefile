@@ -46,6 +46,7 @@ install:
 		> $(DESKTOP)
 	@! command -v desktop-file-validate >/dev/null || desktop-file-validate $(DESKTOP)
 	@! command -v update-desktop-database >/dev/null || update-desktop-database -q $(APPS_DIR)
+	@touch --no-create $(HICOLOR)
 	@test ! -f $(HICOLOR)/icon-theme.cache || gtk-update-icon-cache -q -t -f $(HICOLOR)
 	xdg-mime default academy-board.desktop $(MIME)
 	@echo "Academy Board instalado: procure por 'Academy Board' no menu do GNOME ou abra um .excalidraw."
@@ -57,4 +58,5 @@ uninstall:
 	@test ! -f $(MIMEAPPS) || sed -i '\#^$(MIME)=academy-board.desktop;\?$$#d' $(MIMEAPPS)
 	@test ! -d $(MIME_DIR)/packages || update-mime-database $(MIME_DIR)
 	@! command -v update-desktop-database >/dev/null || update-desktop-database -q $(APPS_DIR)
+	@touch --no-create $(HICOLOR)
 	@test ! -f $(HICOLOR)/icon-theme.cache || gtk-update-icon-cache -q -t -f $(HICOLOR)
