@@ -16,6 +16,19 @@ npm run build   # typecheck + build em out/
 npx electron . caminho/do/desenho.excalidraw   # abre o build num arquivo
 ```
 
+## Instalar
+
+```bash
+make install     # empacota em ~/.local/opt/academy-board e integra ao GNOME
+make uninstall
+```
+
+Instala o `.desktop`, os ícones e o tipo `.excalidraw`
+(`application/vnd.excalidraw+json`), com o Board como app padrão: abre pelo
+menu, pelo dock e por duplo clique no arquivo. `make install` em `Ferramentas/`
+instala todas as ferramentas. Para levar a outra máquina: `npm run dist` gera
+AppImage e `.deb` em `dist/`.
+
 ## Atalhos
 
 | Ação | Atalho |
