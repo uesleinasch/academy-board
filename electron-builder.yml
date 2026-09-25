@@ -1,0 +1,38 @@
+appId: com.ueslei.academy-board
+productName: Academy Board
+copyright: Copyright © 2026 Ueslei Nascimento
+
+directories:
+  output: dist
+  buildResources: resources
+
+files:
+  - out/**/*
+  - package.json
+  - '!**/*.map'
+
+fileAssociations:
+  - ext: excalidraw
+    name: Desenho do Excalidraw
+    mimeType: application/vnd.excalidraw+json
+
+linux:
+  target:
+    - AppImage
+    - deb
+  category: Education
+  icon: resources/icons
+  syncDesktopName: true
+  maintainer: Ueslei Nascimento <ueslei.nascimento@jacto.com.br>
+  synopsis: Quadro branco offline para aulas ao vivo
+  description: >-
+    Editor Excalidraw offline para desenhar diagramas durante a aula, com
+    arquivos .excalidraw no disco e janela estável para captura no OBS.
+
+appImage:
+  artifactName: ${name}-${version}.${ext}
+
+deb:
+  artifactName: ${name}_${version}_${arch}.${ext}
+
+publish: null
