@@ -1,6 +1,14 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
-  <rect width="512" height="512" rx="112" fill="#1e1e2e"/>
-  <rect x="92" y="120" width="328" height="232" rx="20" fill="none" stroke="#e3e3e8" stroke-width="22"/>
-  <path d="M146 300 L214 220 L262 268 L326 188 L372 238" fill="none" stroke="#a5a0ff" stroke-width="24" stroke-linecap="round" stroke-linejoin="round"/>
-  <path d="M256 352 L256 404 M196 404 L316 404" stroke="#e3e3e8" stroke-width="22" stroke-linecap="round"/>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128">
+  <rect x="5" y="5" width="118" height="118" rx="27" fill="#151a21" stroke="#2a3341" stroke-width="2"/>
+  <rect x="20" y="24" width="88" height="66" rx="8" fill="#e6edf3"/>
+  <rect x="30" y="94" width="68" height="5" rx="2.5" fill="#9fb0c3"/>
+  <g fill="none" stroke="#151a21" stroke-width="5">
+    <rect x="30" y="34" width="26" height="18" rx="4"/>
+    <rect x="72" y="62" width="26" height="18" rx="4"/>
+  </g>
+  <g fill="none" stroke="#b45309" stroke-width="6" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M43 56 C43 68 52 71 66 71"/>
+    <path d="M61 65 L67 71 L61 77"/>
+  </g>
+  <rect x="44" y="106" width="40" height="6" rx="3" fill="#7c5cbf"/>
 </svg>
