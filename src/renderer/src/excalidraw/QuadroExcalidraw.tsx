@@ -2,6 +2,7 @@ import { Excalidraw, THEME } from '@excalidraw/excalidraw'
 import type { AppState, ExcalidrawImperativeAPI, LibraryItems } from '@excalidraw/excalidraw/types'
 import type { OrderedExcalidrawElement, Theme } from '@excalidraw/excalidraw/element/types'
 import { useCallback, useMemo, useRef } from 'react'
+import { aguardarInicializacao } from './aguardarInicializacao'
 import { OPCOES_UI } from './opcoesUi'
 
 const CHAVE_TEMA = 'academy-board:tema'
@@ -44,10 +45,15 @@ export function QuadroExcalidraw({ apresentando, aoPronto, aoMudar, aoMudarBibli
     [aoMudar]
   )
 
+  const aoReceberApi = useCallback(
+    (api: ExcalidrawImperativeAPI) => aguardarInicializacao(api, aoPronto),
+    [aoPronto]
+  )
+
   return (
     <div className={apresentando ? 'quadro quadro--apresentando' : 'quadro'}>
       <Excalidraw
-        excalidrawAPI={aoPronto}
+        excalidrawAPI={aoReceberApi}
         initialData={{ appState: { theme: temaInicial } }}
         onChange={aoMudarCena}
         onLibraryChange={aoMudarBiblioteca}
