@@ -8,7 +8,7 @@ MIMEAPPS    := $(HOME)/.config/mimeapps.list
 DESKTOP     := $(APPS_DIR)/academy-board.desktop
 TAMANHOS    := $(patsubst resources/icons/%.png,%,$(wildcard resources/icons/*.png))
 
-.PHONY: install uninstall
+.PHONY: install uninstall deps lint test package docs
 
 install:
 	@test -d node_modules || { echo "Falta node_modules: rode 'npm install' em $(CURDIR)." >&2; exit 1; }
@@ -60,3 +60,29 @@ uninstall:
 	@! command -v update-desktop-database >/dev/null || update-desktop-database -q $(APPS_DIR)
 	@touch --no-create $(HICOLOR)
 	@test ! -f $(HICOLOR)/icon-theme.cache || gtk-update-icon-cache -q -t -f $(HICOLOR)
+
+deps: node_modules
+
+node_modules: package-lock.json
+	npm ci
+
+lint: deps
+	npm run typecheck
+
+test: deps
+	npm test
+
+package: deps
+	@test -n "$(VERSION)" || { echo "Informe VERSION=x.y.z" >&2; exit 1; }
+	npm run pacote
+	tar -C dist -czf dist/academy-board-$(VERSION)-linux-x64.tar.gz linux-unpacked
+
+.venv/bin/mkdocs: requirements-docs.txt
+	@if command -v uv >/dev/null; then uv venv -q .venv && uv pip install -q -p .venv/bin/python -r requirements-docs.txt; else python3 -m venv .venv && .venv/bin/pip install -q -r requirements-docs.txt; fi
+	touch $@
+
+docs: .venv/bin/mkdocs
+	.venv/bin/mkdocs build --strict
+
+docs-serve: .venv/bin/mkdocs
+	.venv/bin/mkdocs serve
