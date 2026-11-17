@@ -74,8 +74,9 @@ test: deps
 
 package: deps
 	@test -n "$(VERSION)" || { echo "Informe VERSION=x.y.z" >&2; exit 1; }
-	npm run pacote
-	tar -C dist -czf dist/academy-board-$(VERSION)-linux-x64.tar.gz linux-unpacked
+	npm run build
+	npx electron-builder --linux AppImage -c.extraMetadata.version=$(VERSION)
+	test -f dist/academy-board-$(VERSION).AppImage
 
 .venv/bin/mkdocs: requirements-docs.txt
 	@if command -v uv >/dev/null; then uv venv -q .venv && uv pip install -q -p .venv/bin/python -r requirements-docs.txt; else python3 -m venv .venv && .venv/bin/pip install -q -r requirements-docs.txt; fi

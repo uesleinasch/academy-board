@@ -16,7 +16,7 @@
     "typecheck:web": "tsc --noEmit -p tsconfig.web.json --composite false",
     "test": "vitest run",
     "pacote": "npm run build && electron-builder --linux dir",
-    "dist": "npm run build && electron-builder --linux AppImage deb"
+    "dist": "npm run build && electron-builder --linux AppImage"
   },
   "dependencies": {
     "@excalidraw/excalidraw": "^0.18.1",

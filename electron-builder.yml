@@ -19,11 +19,9 @@ fileAssociations:
 linux:
   target:
     - AppImage
-    - deb
   category: Education
   icon: resources/icons
   syncDesktopName: true
-  maintainer: Ueslei Nascimento <ueslei.nascimento@jacto.com.br>
   synopsis: Quadro branco offline para aulas ao vivo
   description: >-
     Editor Excalidraw offline para desenhar diagramas durante a aula, com
@@ -31,8 +29,5 @@ linux:
 
 appImage:
   artifactName: ${name}-${version}.${ext}
-
-deb:
-  artifactName: ${name}_${version}_${arch}.${ext}
 
 publish: null

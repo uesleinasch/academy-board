@@ -26,7 +26,8 @@ make uninstall
 Instala o `.desktop`, os ícones e o tipo `.excalidraw`
 (`application/vnd.excalidraw+json`), com o Board como app padrão: abre pelo
 menu, pelo dock e por duplo clique no arquivo. Para levar a outra máquina:
-`npm run dist` gera AppImage e `.deb` em `dist/`.
+`npm run dist` gera o AppImage em `dist/`; as releases do GitHub publicam o
+AppImage de cada versão.
 
 ## Atalhos
 
