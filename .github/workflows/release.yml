@@ -64,12 +64,12 @@ jobs:
 
       - uses: actions/attest-build-provenance@e8998f949152b193b063cb0ec769d69d929409be # v2
         with:
-          subject-path: dist/*.tar.gz
+          subject-path: dist/*.AppImage
 
       - uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4
         with:
           name: package
-          path: dist/*.tar.gz
+          path: dist/*.AppImage
           if-no-files-found: error
 
   publish:
@@ -98,7 +98,7 @@ jobs:
           TAG: ${{ github.ref_name }}
         run: |
           git cliff --latest --strip header > notes.md
-          gh release create "$TAG" dist/*.tar.gz --verify-tag --title "$TAG" --notes-file notes.md --latest
+          gh release create "$TAG" dist/*.AppImage --verify-tag --title "$TAG" --notes-file notes.md --latest
 
   main-sync-reminder:
     needs: publish
