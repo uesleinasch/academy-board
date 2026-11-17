@@ -1,2 +1,6 @@
 out/
 src/renderer/public/fonts/
+dist/
+node_modules/
+site/
+.venv/

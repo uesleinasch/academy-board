@@ -1,0 +1,44 @@
+site_name: Academy Board
+site_description: Quadro branco offline para aulas ao vivo
+site_url: https://uesleinasch.github.io/academy-board/
+repo_url: https://github.com/uesleinasch/academy-board
+repo_name: uesleinasch/academy-board
+edit_uri: edit/production/docs/
+
+docs_dir: docs
+exclude_docs: |
+  /superpowers/
+
+theme:
+  name: material
+  language: pt-BR
+  palette:
+    - media: "(prefers-color-scheme: light)"
+      scheme: default
+      primary: custom
+      accent: teal
+      toggle:
+        icon: material/weather-night
+        name: Modo escuro
+    - media: "(prefers-color-scheme: dark)"
+      scheme: slate
+      primary: custom
+      accent: teal
+      toggle:
+        icon: material/weather-sunny
+        name: Modo claro
+  features:
+    - navigation.sections
+    - navigation.top
+    - content.code.copy
+    - search.highlight
+
+extra_css:
+  - stylesheets/extra.css
+
+plugins:
+  - search:
+      lang: pt
+
+nav:
+  - Início: index.md
